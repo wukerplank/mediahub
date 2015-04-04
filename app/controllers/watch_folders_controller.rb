@@ -1,8 +1,8 @@
 class WatchFoldersController < ApplicationController
 
   def index
-    @movie_watch_folders = WatchFolder.movie_type.all
-    @tvshow_watch_folders = WatchFolder.tvshow_type.all
+    @movie_watch_folders = WatchFolder.movie_type.order('folder').all
+    @tvshow_watch_folders = WatchFolder.tvshow_type.order('folder').all
   end
 
   def new
