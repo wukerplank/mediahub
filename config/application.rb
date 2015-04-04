@@ -29,5 +29,7 @@ module Mediahub
       generate.test_framework false, fixture: false
       generate.view_specs false
     end
+
+    config.active_job.queue_adapter = :sidekiq if Rails.production?
   end
 end
