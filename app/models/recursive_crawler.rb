@@ -5,7 +5,7 @@ class RecursiveCrawler
   def self.run(path, media_type)
     Dir.glob(File.join(escape_path(path), '*')).sort.each do |e|
       if File.directory? e
-        run(e)
+        run(e, media_type)
       else
         if VALID_SUFFIXES.include? File.extname(e).downcase
           MediaFile.create(path: e, media_type: media_type)
