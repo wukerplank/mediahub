@@ -13,7 +13,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'streamio-ffmpeg', github: 'streamio/streamio-ffmpeg'
+gem 'figaro', '~> 1.1.0'
 gem 'font-awesome-rails', '~> 4.3.0'
 gem 'quiet_assets', '~> 1.1.0'
 gem 'paperclip', '4.2.1'
@@ -21,6 +21,7 @@ gem 'paperclip-meta', '1.1.0'
 gem 'sidekiq', '~> 3.3.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'sinatra', require: nil
+gem 'streamio-ffmpeg', github: 'streamio/streamio-ffmpeg'
 gem 'whenever', '0.9.4'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
