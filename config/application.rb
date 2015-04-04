@@ -30,6 +30,6 @@ module Mediahub
       generate.view_specs false
     end
 
-    config.active_job.queue_adapter = :sidekiq if Rails.production?
+    config.active_job.queue_adapter = :sidekiq if Rails.env.production?
   end
 end
