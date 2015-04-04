@@ -1,0 +1,9 @@
+<%= simple_form_for @watch_folder do |f| %>
+
+  <%= f.input :folder %>
+
+  <%= f.input :media_type, collection: MediaType.all, label_method: :name, value_method: :value %>
+
+  <%= f.button :submit, class: 'btn-primary' %> <%= link_to 'Cancel', WatchFolder, class: 'btn btn-default' %>
+
+<% end %>

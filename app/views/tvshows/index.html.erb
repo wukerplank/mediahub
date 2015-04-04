@@ -1,0 +1,9 @@
+<h1>TV-Shows</h1>
+
+<table class="table table-striped table-bordered">
+<% @tvshows.each do |tvshow| %>
+<tr>
+  <td><%= link_to tvshow.title, tvshow %></td>
+</tr>
+<% end %>
+</table>

@@ -1,0 +1,33 @@
+<h1>Watch Folders</h1>
+
+<p><%= link_to 'New watch folder', new_watch_folder_path, class: 'btn btn-success' %></p>
+
+<h2>Movies</h2>
+
+<table class="table table-bordered table-striped">
+<tr>
+  <td class="col-md-1"></td>
+  <td>Folder</td>
+</tr>
+<% @movie_watch_folders.each do |folder| %>
+<tr>
+  <td><%= folder.exists? %></td>
+  <td><%= folder.folder %></td>
+</tr>
+<% end %>
+</table>
+
+<h2>TV-Shows</h2>
+
+<table class="table table-bordered table-striped">
+<tr>
+  <td class="col-md-1"></td>
+  <td>Folder</td>
+</tr>
+<% @tvshow_watch_folders.each do |folder| %>
+<tr>
+  <td><%= folder.exists? %></td>
+  <td><%= folder.folder %></td>
+</tr>
+<% end %>
+</table>
