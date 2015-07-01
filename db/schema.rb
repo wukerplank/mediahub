@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404161842) do
+ActiveRecord::Schema.define(version: 20150628124358) do
 
   create_table "media_files", force: :cascade do |t|
     t.string   "filename"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150404161842) do
     t.string   "audio_codec"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "imdb_id"
   end
 
   add_index "media_files", ["filename"], name: "index_media_files_on_filename"

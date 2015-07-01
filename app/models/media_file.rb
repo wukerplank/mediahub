@@ -26,8 +26,8 @@ class MediaFile < ActiveRecord::Base
   end
 
   def set_imdb_id
-    return unless file.filename.match(/.*\[(tt\d+)\].*/i)
-    self.imdb_id = file.filename.gsub(/.*\[(tt\d+)\].*/i, "\\1")
+    return unless filename.match(/.*\[(tt\d+)\].*/i)
+    self.imdb_id = filename.gsub(/.*\[(tt\d+)\].*/i, "\\1")
   end
 
   def fetch_metadata
