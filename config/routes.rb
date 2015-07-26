@@ -3,7 +3,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
   resources :media_files
-  resources :movies
+  resources :movies do
+    get 'duplicates', on: :collection
+  end
   resources :tvshows
   resources :watch_folders
   mount Sidekiq::Web => '/sidekiq'

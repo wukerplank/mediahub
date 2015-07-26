@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to media_file.path, media_file %></td>
+  <td class="right"><%= number_to_human_size media_file.filesize %></td>
+  <td class="center">
+    <span class="label label-info"><%= resolution_label(media_file.width) %></span>
+  </td>
+</tr>

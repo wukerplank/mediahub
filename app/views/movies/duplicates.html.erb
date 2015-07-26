@@ -1,0 +1,14 @@
+<h1>Duplicates</h1>
+
+<% @duplicates.each do |duplicate| %>
+
+  <h2><%= duplicate['imdb_id'] %></h2>
+
+  <table class="table table-bordered table-striped">
+  <%= render 'th' %>
+  <% @movies.select{ |m| m.imdb_id == duplicate['imdb_id'] }.each do |media_file| %>
+    <%= render partial: 'tr', locals: { media_file: media_file } %>
+  <% end %>
+  </table>
+
+<% end %>
