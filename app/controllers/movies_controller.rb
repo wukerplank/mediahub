@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = MediaFile.order('filename').where(media_type: MediaType.new('movie')).paginate(page: params[:page])
+    @movies = MediaFile.order('filename').where(media_type: MediaType.new('movie')).order('filename').paginate(page: params[:page])
   end
 
   def duplicates

@@ -21,4 +21,6 @@
 
 every 1.hour do
   rake 'crawler:movies'
+  rake 'crawler:tvshows'
 end
+
