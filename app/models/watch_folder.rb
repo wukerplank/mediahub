@@ -5,6 +5,8 @@ class WatchFolder < ActiveRecord::Base
   scope :movie_type, -> { where(media_type: MediaType.new('movie')) }
   scope :tvshow_type, -> { where(media_type: MediaType.new('tvshow')) }
 
+  validates_uniqueness_of :folder
+  validates_presence_of :folder
   validate :folder_existence
 
   def exists?

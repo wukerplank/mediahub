@@ -6,13 +6,18 @@
 
 <table class="table table-bordered table-striped">
 <tr>
-  <td class="col-md-1"></td>
+  <td class="col-md-1">Exists?</td>
   <td>Folder</td>
+  <td class="col-md-2"></td>
 </tr>
 <% @movie_watch_folders.each do |folder| %>
 <tr>
   <td><%= folder.exists? %></td>
   <td><%= folder.folder %></td>
+  <td class="right">
+    <%= link_to 'Edit', edit_watch_folder_path(folder), class: 'btn btn-primary btn-xs' %>
+    <%= link_to 'Destroy', watch_folder_path(folder), method: 'delete', data: { confirm: 'Are you sure you want to remove this folder?' }, class: 'btn btn-danger btn-xs' %>
+  </td>
 </tr>
 <% end %>
 </table>
@@ -21,13 +26,18 @@
 
 <table class="table table-bordered table-striped">
 <tr>
-  <td class="col-md-1"></td>
+  <td class="col-md-1">Exists?</td>
   <td>Folder</td>
+  <td class="col-md-2"></td>
 </tr>
 <% @tvshow_watch_folders.each do |folder| %>
 <tr>
   <td><%= folder.exists? %></td>
   <td><%= folder.folder %></td>
+  <td class="right">
+    <%= link_to 'Edit', edit_watch_folder_path(folder), class: 'btn btn-primary btn-xs' %>
+    <%= link_to 'Destroy', watch_folder_path(folder), method: 'delete', data: { confirm: 'Are you sure you want to remove this folder?' }, class: 'btn btn-danger btn-xs' %>
+  </td>
 </tr>
 <% end %>
 </table>

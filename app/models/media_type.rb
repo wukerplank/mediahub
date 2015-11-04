@@ -8,6 +8,8 @@ class MediaType
   attr_reader :name, :value
 
   def initialize(value)
+    return nil if value.blank?
+
     type = TYPES.detect { |type| type[:value] == value }
     raise "Unknown type '#{value}'" unless type
 

@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = MediaFile.order('filename').where(media_type: MediaType.new('movie'))
+    @movies = MediaFile.movie_type.order('filename')
 
     if params[:filter].present?
       case params[:filter]
