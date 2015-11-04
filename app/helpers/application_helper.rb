@@ -18,4 +18,10 @@ module ApplicationHelper
     end
   end
 
+  def filter_link(label, url, active_on)
+    classes = ['btn', 'btn-default']
+    classes << 'active' if params[:filter] == active_on
+    link_to label, url, class: classes.join(' ')
+  end
+
 end

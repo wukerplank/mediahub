@@ -1,4 +1,12 @@
-<h1>Movies</h1>
+<h1><%= @movie_count %> Movies</h1>
+
+<div class="btn-group" role="group" aria-label="Filters" style="margin-bottom: 20px">
+  <%= filter_link 'All', movies_path, nil %>
+
+  <%= filter_link 'Without ID', movies_path(filter: 'withoutid'), 'withoutid' %>
+
+  <%= filter_link 'Duplicates', movies_path(filter: 'duplicates'), 'duplicates' %>
+</div>
 
 <table class="table table-bordered table-striped">
 <%= render 'th' %>
