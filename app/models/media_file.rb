@@ -17,6 +17,7 @@ class MediaFile < ActiveRecord::Base
 
   after_commit :fetch_metadata, on: :create
   after_commit :create_symlink, on: :create
+  after_commit :remove_symlink, on: :destroy
 
   def exists?
     File.exist? path
@@ -41,10 +42,20 @@ class MediaFile < ActiveRecord::Base
     MetadataFetcherJob.perform_later(id)
   end
 
+  def symlink_directory
+    File.join(Rails.root, 'public', self.media_type.to_s.pluralize)
+  end
+
+  def symlink_path
+    File.join(symlink_directory, File.basename(self.path))
+  end
+
   def create_symlink
-    directory = File.join(Rails.root, 'public', self.media_type.to_s.pluralize)
-    FileUtils.mkdir_p directory
-    symlink_path = File.join(directory, File.basename(self.path))
+    FileUtils.mkdir_p symlink_directory
     FileUtils.symlink self.path, symlink_path
+  end
+
+  def remove_symlink
+    FileUtils.remove symlink_path if File.exist? symlink_path
   end
 end
