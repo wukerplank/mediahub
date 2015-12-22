@@ -1,5 +1,18 @@
 <h1><%= @media_file.filename %></h1>
 
+<div class="row">
+  <div class="col-sm-8">
+    <%= videojs_rails sources: { mp4: @media_file.public_path },
+                      controls: false,
+                      style: 'width: 100%; height: auto; min-height: 200px;' %>
+  </div>
+  <div class="col-sm-4">
+    <%= link_to 'Open with GIF Hammer', "gifhammer://open_file?URL=#{CGI.escape("#{request.protocol}#{request.host_with_port}#{@media_file.public_path}")}",
+         class: "btn btn-success" %>
+  </div>
+</div>
+
+
 <p><span class="label label-info"><%= resolution_label(@media_file.width) %></span></p>
 
 <%= debug @media_file %>
