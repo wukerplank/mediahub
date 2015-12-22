@@ -21,4 +21,8 @@ class MediaType
     TYPES.map{ |type| MediaType.new(type[:value]) }
   end
 
+  def to_s
+    self.value
+  end
+
 end
