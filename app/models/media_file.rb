@@ -1,3 +1,5 @@
+require 'fileutils'
+
 class MediaFile < ActiveRecord::Base
 
   composed_of :media_type,
@@ -14,9 +16,14 @@ class MediaFile < ActiveRecord::Base
   before_validation :set_filename, :set_imdb_id
 
   after_commit :fetch_metadata, on: :create
+  after_commit :create_symlink, on: :create
 
   def exists?
     File.exist? path
+  end
+
+  def public_path
+    File.join '/', self.media_type.to_s.pluralize, File.basename(self.path)
   end
 
   private
@@ -32,5 +39,12 @@ class MediaFile < ActiveRecord::Base
 
   def fetch_metadata
     MetadataFetcherJob.perform_later(id)
+  end
+
+  def create_symlink
+    directory = File.join(Rails.root, 'public', self.media_type.to_s.pluralize)
+    FileUtils.mkdir_p directory
+    symlink_path = File.join(directory, File.basename(self.path))
+    FileUtils.symlink self.path, symlink_path
   end
 end
