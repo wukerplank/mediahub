@@ -1,0 +1,9 @@
+<h1>Edit <%= @media_file.filename %></h1>
+
+<%= simple_form_for @media_file do |f| %>
+
+  <%= f.input :filename, input_html: { autocomplete: 'off' } %>
+
+  <%= f.submit class: 'btn btn-success' %>
+
+<% end %>

@@ -1,6 +1,8 @@
 class MoviesController < ApplicationController
 
   def index
+    title.push 'Movies'
+
     @movies = MediaFile.movie_type.order('filename')
 
     if params[:filter].present?

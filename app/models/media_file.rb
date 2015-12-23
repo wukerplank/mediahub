@@ -13,6 +13,7 @@ class MediaFile < ActiveRecord::Base
   validates_presence_of :path
   validates_uniqueness_of :path
 
+  before_validation :rename_file_if_necessary, on: :update
   before_validation :set_filename, :set_imdb_id
 
   after_commit :fetch_metadata, on: :create
@@ -57,5 +58,19 @@ class MediaFile < ActiveRecord::Base
 
   def remove_symlink
     FileUtils.remove symlink_path if File.exist? symlink_path
+  end
+
+  def rename_file_if_necessary
+    new_path = File.join File.dirname(self.path), self.filename
+
+    if File.exist?(new_path)
+      self.errors.add(:filename, "File already exists")
+      return false
+    end
+
+    FileUtils.mv(self.path, new_path)
+    self.path = new_path
+    self.send :remove_symlink
+    self.send :create_symlink
   end
 end

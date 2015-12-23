@@ -7,6 +7,11 @@
                       style: 'width: 100%; height: auto; min-height: 200px;' %>
   </div>
   <div class="col-sm-4">
+
+    <p><%= link_to 'Edit', edit_media_file_path(@media_file), class: 'btn btn-sm btn-primary' %></p>
+
+    <hr />
+
     <%= link_to 'Open with GIF Hammer', "gifhammer://open_file?URL=#{CGI.escape("#{request.protocol}#{request.host_with_port}#{@media_file.public_path}")}",
          class: "btn btn-success" %>
   </div>
