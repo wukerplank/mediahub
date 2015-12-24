@@ -6,7 +6,7 @@ class MediamasterMovieCreationJob < ActiveJob::Base
 
     current_user = User.find(user_id)
 
-    MediaMasterClient::Base.configure do |config|
+    MediaMasterClient::Base.configure do |c|
       c.username   = current_user.mediamaster_nickname
       c.password   = current_user.mediamaster_secret
     end
