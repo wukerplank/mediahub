@@ -79,6 +79,6 @@ class MediaFile < ActiveRecord::Base
 
   def create_movie_on_mediamaster
     return if self.imdb_id.blank?
-    MediamasterMovieCreationJob.perform_later(self.imdb_id)
+    MediamasterMovieCreationJob.perform_later(self.imdb_id, User.first.id)
   end
 end
