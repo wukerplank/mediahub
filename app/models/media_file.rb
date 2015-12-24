@@ -66,6 +66,8 @@ class MediaFile < ActiveRecord::Base
   def rename_file_if_necessary
     new_path = File.join File.dirname(self.path), self.filename
 
+    return if self.path == new_path
+
     if File.exist?(new_path)
       self.errors.add(:filename, "File already exists")
       return false
