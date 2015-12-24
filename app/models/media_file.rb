@@ -13,12 +13,15 @@ class MediaFile < ActiveRecord::Base
   validates_presence_of :path
   validates_uniqueness_of :path
 
-  before_validation :rename_file_if_necessary, on: :update
-  before_validation :set_filename, :set_imdb_id
+  validates_format_of :filename, with: /\A[^\.]+\.[^\.]+\z/i, on: :update
+
+  after_validation :rename_file_if_necessary, on: :update
+  after_validation :set_filename, :set_imdb_id
 
   after_commit :fetch_metadata, on: :create
   after_commit :create_symlink, on: :create
   after_commit :remove_symlink, on: :destroy
+  after_commit :create_movie_on_mediamaster
 
   def exists?
     File.exist? path
@@ -72,5 +75,10 @@ class MediaFile < ActiveRecord::Base
     self.path = new_path
     self.send :remove_symlink
     self.send :create_symlink
+  end
+
+  def create_movie_on_mediamaster
+    return if self.imdb_id.blank?
+    MediamasterMovieCreationJob.perform_later(self.imdb_id)
   end
 end

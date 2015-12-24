@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628124358) do
+ActiveRecord::Schema.define(version: 20151224101054) do
 
   create_table "media_files", force: :cascade do |t|
     t.string   "filename"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20150628124358) do
 
   add_index "media_files", ["filename"], name: "index_media_files_on_filename"
   add_index "media_files", ["path"], name: "index_media_files_on_path"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "mediamaster_nickname"
+    t.string   "mediamaster_secret"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "watch_folders", force: :cascade do |t|
     t.string   "folder"

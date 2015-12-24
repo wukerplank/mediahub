@@ -16,6 +16,10 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'figaro', '~> 1.1.0'
 gem 'font-awesome-rails', '~> 4.3.0'
 gem 'quiet_assets', '~> 1.1.0'
+
+gem 'media_master_client', git: 'git@github.com:wukerplank/media_master_client.git'
+gem 'imdb_api',            git: 'git@github.com:wukerplank/imdb_api.git'
+
 gem 'paperclip', '4.2.1'
 gem 'paperclip-meta', '1.1.0'
 gem 'sidekiq', '~> 3.3.0'
