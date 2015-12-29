@@ -24,4 +24,13 @@ module ApplicationHelper
     link_to label, url, class: classes.join(' ')
   end
 
+  def flash_messages
+    str = ""
+    [:error, :warning, :success].each do |kind|
+      str += content_tag :div, flash[kind], class: "alert alert-#{kind}" if flash[kind]
+    end
+
+    return str
+  end
+
 end

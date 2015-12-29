@@ -11,11 +11,19 @@ class MediamasterMovieCreationJob < ActiveJob::Base
       c.password   = current_user.mediamaster_secret
     end
 
+    logger.info "Client:"
+    logger.info "  #{MediaMasterClient::Base.app_uid}"
+    logger.info "  #{MediaMasterClient::Base.app_secret}"
+    logger.info "  #{MediaMasterClient::Base.host}"
+
+    logger.info "  #{MediaMasterClient::Base.username}"
+    logger.info "  #{MediaMasterClient::Base.password}"
+
     unless MediaMasterClient::Movie.find_by_imdb_id(imdb_id)
 
       movie_data = ImdbApi::Movie.find(imdb_id)
 
-      movie = MediaMasterClient::Movie.find_or_create_by_imdb_id(imdb_id, movie_data)
+      movie = MediaMasterClient::Movie.create(movie_data)
 
       movie_data[:cast].each do |acting_data|
 

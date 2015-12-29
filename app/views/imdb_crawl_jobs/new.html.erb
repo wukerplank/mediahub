@@ -1,0 +1,11 @@
+<h1>Create new crawl job</h1>
+
+<%= flash_messages %>
+
+<%= simple_form_for @imdb_crawl_job do |f| %>
+
+  <%= f.input :imdb_id %>
+
+  <p><%= f.submit class: 'btn btn-success' %></p>
+
+<% end %>

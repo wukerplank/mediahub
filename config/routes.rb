@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :tvshows
   resources :watch_folders
+  resources :imdb_crawl_jobs
   mount Sidekiq::Web => '/sidekiq'
 
   root 'media_files#index'
