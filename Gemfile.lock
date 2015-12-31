@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git@github.com:wukerplank/media_master_client.git
-  revision: 79e4fab9dd3fcd300b007cfa54c8f49e951ff5cf
+  revision: efd40a73f5df60cf0746f895dbb01147fc3cb413
   specs:
     media_master_client (0.0.1)
       hashie

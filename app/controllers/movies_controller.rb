@@ -19,8 +19,14 @@ class MoviesController < ApplicationController
       end
     end
 
-    @movie_count = @movies.count
-    @movies = @movies.paginate(page: params[:page])
+    respond_to do |format|
+      format.html do
+        @movie_count = @movies.count
+        @movies = @movies.paginate(page: params[:page])
+      end
+      format.json
+    end
+
   end
 
 end
