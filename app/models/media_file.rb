@@ -55,8 +55,8 @@ class MediaFile < ActiveRecord::Base
   end
 
   def create_symlink
-    FileUtils.mkdir_p symlink_directory
-    FileUtils.symlink self.path, symlink_path
+    FileUtils.mkdir_p symlink_directory unless File.exist?(symlink_directory)
+    FileUtils.symlink self.path, symlink_path unless File.exist?(symlink_path)
   end
 
   def remove_symlink
