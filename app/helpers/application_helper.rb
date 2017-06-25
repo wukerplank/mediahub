@@ -4,9 +4,9 @@ module ApplicationHelper
     if width
       if width < 1280
         return 'SD'
-      elsif width < 1920
+      elsif width < 1920 && height <= 720
         return '720p'
-      elsif width < 3840
+      elsif width < 3840 && height <= 1080
         return '1080p'
       elsif width >= 3840
         return '4K'
