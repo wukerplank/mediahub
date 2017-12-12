@@ -26,11 +26,14 @@ gem 'sidekiq', '~> 3.3.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'sinatra', require: nil
 gem 'streamio-ffmpeg', github: 'streamio/streamio-ffmpeg'
-gem 'puma', '~> 2.15.3'
 gem 'videojs_rails', '~> 4.12.14'
 gem 'whenever', '0.9.4'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
+
+group :development do
+  gem 'puma'
+end
 
 group :production do
   gem 'mysql2', '~> 0.3.18'
