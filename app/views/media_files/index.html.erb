@@ -16,7 +16,7 @@
 <tr>
   <td><%= link_to media_file.path, media_file %></td>
   <td>
-    <span class="label label-info"><%= resolution_label(media_file.width) %></span>
+    <span class="label label-info"><%= resolution_label(media_file.width, media_file.height) %></span>
   </td>
 </tr>
 <% end %>

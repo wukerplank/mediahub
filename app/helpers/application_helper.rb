@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-  def resolution_label(width)
-    if width
+  def resolution_label(width, height)
+    if width && height
       if width < 1280
         return 'SD'
       elsif width < 1920 && height <= 720
