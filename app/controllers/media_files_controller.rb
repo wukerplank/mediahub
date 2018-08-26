@@ -1,6 +1,6 @@
 class MediaFilesController < ApplicationController
 
-  before_filter :find_media_file, only: ['show', 'edit', 'update']
+  before_action :find_media_file, only: ['show', 'edit', 'update']
 
   def index
     if params[:q] && params[:q].length > 2
