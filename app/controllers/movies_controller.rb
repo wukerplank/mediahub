@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
         @movies = @movies.where(imdb_id: nil)
       when 'duplicates'
         @duplicates = MediaFile.connection.select_all("SELECT imdb_id, COUNT(*) AS duplicates FROM media_files
-        WHERE imdb_id IS NOT NULL AND imdb_id != \"\"
+        WHERE imdb_id IS NOT NULL AND imdb_id <> \"\"
         GROUP BY imdb_id
         HAVING duplicates > 1")
 
