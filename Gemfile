@@ -41,9 +41,11 @@ gem 'imdb_api',            git: 'git@github.com:wukerplank/imdb_api.git'
 
 gem 'paperclip', '6.1.0'
 gem 'paperclip-meta', '3.1.0'
-gem 'sidekiq', '~> 3.3.0'
+gem 'sidekiq' # Async Jobs
+  gem 'sinatra', require: false
+  gem 'redis-namespace'
+  gem 'slim'
 gem 'simple_form', '~> 4.0.1'
-gem 'sinatra', require: nil
 gem 'streamio-ffmpeg', github: 'streamio/streamio-ffmpeg'
 gem 'videojs_rails', '~> 4.12.14'
 gem 'whenever', '0.9.4'
@@ -56,8 +58,8 @@ end
 
 group :development do
   gem 'sqlite3'
-  gem 'mina', '1.2.3'
-  gem 'mina-whenever'
+  # gem 'mina', '1.2.3'
+  # gem 'mina-whenever'
 end
 
 # Reduces boot times through caching; required in config/boot.rb
