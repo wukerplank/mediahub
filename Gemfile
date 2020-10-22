@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'figaro', '~> 1.1.0'
 gem 'font-awesome-rails', '~> 4.7.0.3'
 # gem 'quiet_assets', '~> 1.1.0'
