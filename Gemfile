@@ -39,7 +39,7 @@ gem 'imdb_api',            git: 'git@github.com:wukerplank/imdb_api.git'
 
 gem 'paperclip', '6.1.0'
 gem 'paperclip-meta', '3.1.0'
-gem 'sidekiq' # Async Jobs
+gem 'sidekiq', '~> 5.2'
   gem 'sinatra', require: false
   gem 'redis-namespace'
   gem 'slim'
