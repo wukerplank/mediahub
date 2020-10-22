@@ -56,6 +56,11 @@ group :production do
   gem 'mysql2', '~> 0.5.2'
 end
 
+group :development do
+  gem 'mina', '1.2.3'
+  gem 'mina-whenever'
+end
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
