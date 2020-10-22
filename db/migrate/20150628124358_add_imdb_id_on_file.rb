@@ -1,4 +1,4 @@
-class AddImdbIdOnFile < ActiveRecord::Migration
+class AddImdbIdOnFile < ActiveRecord::Migration[5.2]
   def change
     add_column :media_files, :imdb_id, :string, index: true, after: :md5
 
