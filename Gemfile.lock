@@ -181,7 +181,6 @@ GEM
     multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    mysql2 (0.5.3)
     net-http-digest_auth (1.4.1)
     net-http-persistent (4.0.0)
       connection_pool (~> 2.2)
@@ -204,6 +203,7 @@ GEM
       terrapin (~> 0.6.0)
     paperclip-meta (3.1.0)
       paperclip (>= 5.0)
+    pg (0.21.0)
     public_suffix (4.0.6)
     puma (3.12.6)
     rack (2.2.3)
@@ -338,9 +338,9 @@ DEPENDENCIES
   media_master_client!
   mina (= 1.2.3)
   mina-whenever
-  mysql2 (~> 0.5.2)
   paperclip (= 6.1.0)
   paperclip-meta (= 3.1.0)
+  pg (~> 0.15)
   puma (~> 3.11)
   rails (~> 5.2.1)
   sass-rails (~> 5.0)
