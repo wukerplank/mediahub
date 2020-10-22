@@ -43,7 +43,7 @@ gem 'sidekiq', '~> 5.2'
   gem 'sinatra', require: false
   gem 'redis-namespace'
   gem 'slim'
-gem 'simple_form', '~> 4.0.1'
+gem 'simple_form', '~> 5.0.0'
 gem 'streamio-ffmpeg', github: 'streamio/streamio-ffmpeg'
 gem 'videojs_rails', '~> 4.12.14'
 gem 'whenever', '0.9.4'
