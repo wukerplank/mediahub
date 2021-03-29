@@ -251,7 +251,7 @@ GEM
       rack (~> 2.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 4.2)
-    simple_form (4.0.1)
+    simple_form (5.0.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     sinatra (2.1.0)
@@ -336,7 +336,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq (~> 5.2)
-  simple_form (~> 4.0.1)
+  simple_form (~> 5.0.0)
   sinatra
   slim
   spring
