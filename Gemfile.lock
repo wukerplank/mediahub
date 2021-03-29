@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:wukerplank/imdb_api.git
-  revision: b19d19fc227c5a559bacb0256ff03d9e996c83af
+  revision: 085585bbec427e683fd5531b8da8b7eb05a64403
   specs:
     imdb_api (0.0.1)
 

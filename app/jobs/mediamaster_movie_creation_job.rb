@@ -7,9 +7,9 @@ class MediamasterMovieCreationJob < ActiveJob::Base
     current_user = User.find(user_id)
 
     MediaMasterClient::Base.configure do |c|
-      c.app_uid    = "a267052a3b9055742f047d317967a14d3e1b68c59971874898bf1343330fb23d"
-      c.app_secret = "0141c3eb19ce2edeea664d72ae6f324e43db654949f211afbaeda7199a5087a9"
-      c.host       = 'http://mediamaster.edthofer.at'
+      c.app_uid    = ENV['MEDIA_MASTER_CLIENT_APP_UID']
+      c.app_secret = ENV['MEDIA_MASTER_CLIENT_APP_SECRET']
+      c.host       = ENV['MEDIA_MASTER_CLIENT_HOST']
       c.username   = current_user.mediamaster_nickname
       c.password   = current_user.mediamaster_secret
     end
