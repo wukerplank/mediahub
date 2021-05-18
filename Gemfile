@@ -55,7 +55,7 @@ group :production do
 end
 
 group :development do
-  gem 'puma', '~> 3.11'
+  gem 'puma', '~> 4.3'
   gem 'sqlite3'
   gem 'mina', '1.2.3'
   gem 'mina-whenever'
